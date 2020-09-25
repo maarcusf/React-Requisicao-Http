@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './style.css';
 
 class App extends Component {
 
@@ -25,7 +25,22 @@ class App extends Component {
 
   render(){
     return(
-      <div>
+      <div className= "container">
+      <header>
+        <strong>React Nutri</strong>
+      </header>
+
+
+          {this.state.nutri.map((item)=> {
+            return(
+                <article key={item.id} className = "post">
+                  <strong className="titulo"> {item.titulo} </strong>
+                  <img className="capa" src={item.capa}/>
+                  <p className="subtitulo">{item.subtitulo}</p>
+                  <a className="botao" href="#">Veja Mais</a>
+                </article>
+            );
+          })}
 
       </div>
     )
